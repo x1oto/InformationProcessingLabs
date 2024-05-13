@@ -9,4 +9,7 @@
     <string name="lab_1">Lab 1</string>
     <string name="lab_2">Lab 2</string>
     <string name="lab_3">Lab 3</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lab_4">Lab 4</string>
 </resources>

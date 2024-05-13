@@ -22,4 +22,10 @@
         android:name="com.x1oto.informationprocessinglabs.ui.lab3.Lab3Fragment"
         android:label="@string/lab_3"
         tools:layout="@layout/fragment_lab3" />
+
+    <fragment
+        android:id="@+id/nav_lab4"
+        android:name="com.x1oto.informationprocessinglabs.ui.lab4.Lab4Fragment"
+        android:label="@string/lab_4"
+        tools:layout="@layout/fragment_lab4" />
 </navigation>

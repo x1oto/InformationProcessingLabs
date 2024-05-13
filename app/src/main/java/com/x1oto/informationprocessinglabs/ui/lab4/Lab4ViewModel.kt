@@ -1,11 +1,13 @@
-package com.x1oto.informationprocessinglabs.ui.lab3
+package com.x1oto.informationprocessinglabs.ui.lab4
 
 import androidx.lifecycle.ViewModel
-import kotlin.math.PI
+import org.apache.commons.math3.transform.DftNormalization
+import org.apache.commons.math3.transform.FastFourierTransformer
 import kotlin.math.cos
 import kotlin.math.sin
+import kotlin.math.PI
 
-class Lab3ViewModel : ViewModel() {
+class Lab4ViewModel : ViewModel() {
     data class Complex(val real: Double, val imaginary: Double)
 
     fun calculateDFT(x: DoubleArray): Array<Complex> {

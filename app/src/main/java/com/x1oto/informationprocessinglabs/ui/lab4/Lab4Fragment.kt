@@ -1,47 +1,46 @@
-package com.x1oto.informationprocessinglabs.ui.lab3
+package com.x1oto.informationprocessinglabs.ui.lab4
 
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.x1oto.informationprocessinglabs.databinding.FragmentLab3Binding
+import com.x1oto.informationprocessinglabs.databinding.FragmentLab4Binding
+import com.x1oto.informationprocessinglabs.ui.lab3.Lab3ViewModel
 
-class Lab3Fragment : Fragment() {
 
-    private var _binding: FragmentLab3Binding? = null
+class Lab4Fragment : Fragment() {
+
+    private var _binding: FragmentLab4Binding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
-        val lab3ViewModel =
-                ViewModelProvider(this).get(Lab3ViewModel::class.java)
-
-        _binding = FragmentLab3Binding.inflate(inflater, container, false)
+        val lab4ViewModel =
+            ViewModelProvider(this).get(Lab4ViewModel::class.java)
+        _binding = FragmentLab4Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        setupCalculateButton(lab3ViewModel)
-
+        setupCalculateButton(lab4ViewModel)
         return root
     }
 
-    private fun setupCalculateButton(viewModel: Lab3ViewModel) {
+    private fun setupCalculateButton(viewModel: Lab4ViewModel) {
         binding.calculateBt.setOnClickListener {
             val x = getSequence()
             var result = ""
 
             val directDFT = viewModel.calculateDFT(x)
-            result += "Пряме ДПФ:\n"
+            result += "Пряме ШПФ:\n"
             directDFT.forEachIndexed { index, value ->
                 result += "X[$index] = ${value.real}\n"
             }
 
             val inverseDFT = viewModel.calculateInverseDFT(directDFT)
-            result +="\nОбернене ДПФ:\n"
+            result +="\nОбернене ШПФ:\n"
             inverseDFT.forEachIndexed { index, value ->
                 result += "x[$index] = $value\n"
             }
@@ -49,6 +48,7 @@ class Lab3Fragment : Fragment() {
             binding.resultTv.text = result
         }
     }
+
 
     private fun getSequence(): DoubleArray {
         val originalSequence = binding.sequenceEditText.text.toString()
